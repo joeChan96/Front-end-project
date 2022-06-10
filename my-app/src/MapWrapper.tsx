@@ -18,7 +18,7 @@ import "./MapWrapper.css";
 export default function MapWrapper() {
   return (
     <main className="main-grid">
-      <div className="search">Search Heritage</div>
+      <div className="search">Onjj</div>
       <div className="map">
         <Map view={{ center: [0, 0], zoom: 1 }}>
           <Layers>
