@@ -1,10 +1,8 @@
 .header {
-  background-color: #b31ca8;
-  display: flex;
-  justify-content: center;
+  background-color: #3a506b;
 }
 
 .logo {
-  font-family: "Fascinate", cursive;
-  color: whitesmoke;
+  width: 12vw;
+  padding: 10px 0;
 }

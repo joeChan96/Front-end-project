@@ -1,5 +1,6 @@
 import "./App.css";
 import Header from "./header";
+import Main from "./Main";
 
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,14 +13,15 @@ function App() {
     <div>
       <React.Fragment>
         <CssBaseline />
+        <Header />
         <Container
           maxWidth="xl"
           sx={{
-            bgcolor: "#f0f0f0",
-            height: "120vh",
+            bgcolor: "#ffffff",
+            height: "100vh",
           }}
         >
-          <Header />
+          <Main />
         </Container>
       </React.Fragment>
     </div>
