@@ -15,11 +15,28 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+function displayMap(turnOn: boolean) {
+  if (turnOn) {
+    return { display: "inline" };
+  } else {
+    return { display: "none" };
+  }
+}
+
 export default function Main() {
+  const [turnOn, setTurnOn] = React.useState(false);
+
+  function handleClick() {
+    setTurnOn((prevTurnOn) => {
+      return !prevTurnOn;
+    });
+    displayMap(turnOn);
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Grid item xl={4}>
+      <Grid container id="search-part" spacing={2}>
+        <Grid item xl={4} sx={displayMap(turnOn)}>
           <Box
             component="form"
             sx={{
@@ -36,12 +53,13 @@ export default function Main() {
             />
           </Box>
         </Grid>
-        <Grid item xl={8}>
+        <Grid item xl={8} sx={displayMap(turnOn)}>
           <Item>
             <Leaflet />
           </Item>
         </Grid>
       </Grid>
+      <button onClick={handleClick}>test</button>
     </Box>
   );
 }

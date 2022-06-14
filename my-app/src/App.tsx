@@ -11,19 +11,18 @@ import { green } from "@mui/material/colors";
 function App() {
   return (
     <div>
-      <React.Fragment>
-        <CssBaseline />
+      <CssBaseline />
+
+      <Container
+        maxWidth="xl"
+        sx={{
+          bgcolor: "#ffffff",
+          height: "100vh",
+        }}
+      >
         <Header />
-        <Container
-          maxWidth="xl"
-          sx={{
-            bgcolor: "#ffffff",
-            height: "100vh",
-          }}
-        >
-          <Main />
-        </Container>
-      </React.Fragment>
+        <Main />
+      </Container>
     </div>
   );
 }

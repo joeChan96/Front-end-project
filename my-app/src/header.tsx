@@ -1,4 +1,5 @@
 import "./header.css";
+// import Main, { handleClick } from "./Main";
 
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
@@ -23,10 +24,6 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const Header = () => {
   const [value, setValue] = React.useState("recents");
-
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
-  };
 
   return (
     <nav>
