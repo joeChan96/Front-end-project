@@ -24,7 +24,7 @@ function displayMap(turnOn: boolean) {
 }
 
 export default function Main() {
-  const [turnOn, setTurnOn] = React.useState(false);
+  const [turnOn, setTurnOn] = React.useState(true);
 
   function handleClick() {
     setTurnOn((prevTurnOn) => {
@@ -59,7 +59,7 @@ export default function Main() {
           </Item>
         </Grid>
       </Grid>
-      <button onClick={handleClick}>test</button>
+      {/* <button onClick={handleClick}>test</button> */}
     </Box>
   );
 }

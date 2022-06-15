@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./header";
 import Main from "./Main";
+import Weather from "./weather";
 
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";

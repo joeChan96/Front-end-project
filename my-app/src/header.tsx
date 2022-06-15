@@ -1,5 +1,5 @@
 import "./header.css";
-// import Main, { handleClick } from "./Main";
+import Weather from "./weather";
 
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
@@ -72,6 +72,7 @@ const Header = () => {
             ></Box>
 
             <Box sx={{ flexGrow: 0 }}></Box>
+            <Weather />
           </Toolbar>
         </Container>
       </AppBar>
