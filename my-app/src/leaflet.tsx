@@ -5,21 +5,46 @@ import "./leaflet.css";
 
 import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
 
-const marker = heritageInfo.map((heritage, index) => {
-  const latlng: any = heritage.coordinates;
-  return (
-    <Marker position={latlng}>
-      <Popup>{heritage.name}</Popup>
-    </Marker>
-  );
-});
-
-export default function Leaflet() {
+export default function Leaflet({ id }) {
   const [map, setMap] = useState(null);
 
-  // const markerRef = useRef(null);
+  // const [selected, setSelected] = useState();
 
-  // const { center, content, openPopup } = props;
+  const marker = heritageInfo.map((heritage, index) => {
+    const latlng: any = heritage.coordinates;
+
+    // if (id === heritage.id) markerRef.current.leafletElement.openPopup();
+
+    return (
+      // <Marker position={latlng} key={heritage.name} ref={markerRef}>
+      //   <Popup>{heritage.name}</Popup>
+      // </Marker>
+      <PointMarker
+        key={index}
+        content={heritage.name}
+        center={latlng}
+        openPopup={id === heritage.id}
+      />
+    );
+  });
+
+  function PointMarker({ content, center, openPopup }) {
+    const markerRef: any = useRef(null);
+
+    useEffect(() => {
+      if (openPopup) markerRef.current.openPopup();
+    }, [openPopup]);
+
+    return (
+      <Marker position={center} ref={markerRef}>
+        <Popup>{content}</Popup>
+      </Marker>
+    );
+  }
+
+  // useEffect(() => {
+  //   console.log(id);
+  // }, [id]);
 
   useEffect(() => {
     if (map) {
@@ -42,6 +67,7 @@ export default function Leaflet() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
+        {/* <PointsLayer selectedIndex={selected} data={heritageInfo} /> */}
         {marker}
       </MapContainer>
     </div>

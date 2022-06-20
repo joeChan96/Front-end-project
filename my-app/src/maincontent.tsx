@@ -2,6 +2,7 @@ import "./maincontent.css";
 import Weather from "./weather";
 import Leaflet from "./leaflet";
 import heritageInfo from "./heritageInfo";
+// import MapExample from "./mapExample";
 
 import * as React from "react";
 import { useState, useEffect } from "react";
@@ -37,6 +38,8 @@ const Item = styled(Paper)(({ theme }) => ({
 const MainContent = () => {
   const [value, setValue] = useState("recents");
 
+  const [selected, setSelected] = useState();
+
   // const [turnOn, setTurnOn] = React.useState(true);
 
   // For transition
@@ -70,7 +73,9 @@ const MainContent = () => {
         <ListItem
           alignItems="flex-start"
           key={index}
-          onClick={() => handleItemClick(heritage.name)}
+          onClick={(e) => {
+            onItemClick(heritage.id);
+          }}
         >
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={heritage.img} />
@@ -94,9 +99,8 @@ const MainContent = () => {
       );
     });
 
-  function handleItemClick(name) {
-    // e.preventDefault();
-    return name;
+  function onItemClick(id) {
+    setSelected(id);
   }
 
   return (
@@ -215,7 +219,12 @@ const MainContent = () => {
               </Grid>
               <Grid item xl={8} /*sx={displayMap(turnOn)}*/>
                 <Item>
-                  <Leaflet />
+                  <Leaflet id={selected} />
+                  {/* <MapExample
+                    zoom={4}
+                    center={{ lat: 22.37, lng: 114.135 }}
+                    locations={heritageInfo}
+                  /> */}
                 </Item>
               </Grid>
             </Grid>
