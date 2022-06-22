@@ -12,3 +12,8 @@
   background: transparent;
   border: none;
 }
+
+.img {
+  width: 120px;
+  padding-bottom: 7px;
+}

@@ -6,6 +6,7 @@ export default [
     visiting_time: 3,
     coordinates: [22.28156925258993, 114.15405190521611],
     img: "/heritagePhoto/taikwun.jpg",
+    star: 5,
   },
 
   {
@@ -15,6 +16,7 @@ export default [
     visiting_time: 2,
     coordinates: [22.278660117591976, 114.16223429444769],
     img: "/heritagePhoto/teahouse.jpg",
+    star: 4,
   },
 
   {
@@ -24,6 +26,7 @@ export default [
     visiting_time: 1,
     coordinates: [22.2741104749921, 114.17410506421855],
     img: "/heritagePhoto/bluehouse.jpg",
+    star: 5,
   },
 
   {
@@ -33,6 +36,7 @@ export default [
     visiting_time: 1,
     coordinates: [22.284854101653174, 114.13449791877413],
     img: "/heritagePhoto/runrunshawhouse.jpg",
+    star: 4,
   },
 
   {
@@ -42,6 +46,7 @@ export default [
     visiting_time: 2,
     coordinates: [22.283566233389983, 114.15157763234457],
     img: "/heritagePhoto/pmq.jpg",
+    star: 3,
   },
 
   {
@@ -51,6 +56,7 @@ export default [
     visiting_time: 1,
     coordinates: [22.325205785011594, 114.16510527762483],
     img: "/heritagePhoto/luisengchun.jpg",
+    star: 3,
   },
 
   {
@@ -60,6 +66,7 @@ export default [
     visiting_time: 1,
     coordinates: [22.33289854933651, 114.1874771707625],
     img: "/heritagePhoto/hauwongtemple.jpg",
+    star: 3,
   },
 
   {
@@ -69,6 +76,7 @@ export default [
     visiting_time: 2,
     coordinates: [22.295820481123076, 114.16982366922284],
     img: "/heritagePhoto/policeheadquarters.jpg",
+    star: 4,
   },
 
   {
@@ -78,6 +86,7 @@ export default [
     visiting_time: 1,
     coordinates: [22.315101150201883, 114.17197870423517],
     img: "/heritagePhoto/tungwahmuseum.jpg",
+    star: 4,
   },
 
   {
@@ -87,6 +96,7 @@ export default [
     visiting_time: 1,
     coordinates: [22.303397801965406, 114.1720593756792],
     img: "/heritagePhoto/190nathanroad.jpg",
+    star: 5,
   },
 
   {
@@ -96,6 +106,7 @@ export default [
     visiting_time: 1,
     coordinates: [22.373597552356216, 114.18283100250613],
     img: "/heritagePhoto/chekungtemple.jpg",
+    star: 5,
   },
 
   {
@@ -105,6 +116,7 @@ export default [
     visiting_time: 1,
     coordinates: [22.37415245817244, 114.19055598814272],
     img: "/heritagePhoto/tsangtaiuk.jpg",
+    star: 4,
   },
 
   {
@@ -114,6 +126,7 @@ export default [
     visiting_time: 1,
     coordinates: [22.448978695548483, 114.00628276390637],
     img: "/heritagePhoto/tsuisinglau.jpg",
+    star: 3,
   },
 
   {
@@ -123,6 +136,7 @@ export default [
     visiting_time: 2,
     coordinates: [22.439820934269687, 114.06405172909632],
     img: "/heritagePhoto/kathingwai.jpg",
+    star: 4,
   },
 
   {
@@ -132,6 +146,7 @@ export default [
     visiting_time: 1,
     coordinates: [22.501673711603786, 114.11858900284655],
     img: "/heritagePhoto/oiyuenvilla.jpg",
+    star: 3,
   },
 
   {
@@ -141,5 +156,6 @@ export default [
     visiting_time: 1,
     coordinates: [22.374780780271887, 114.18747887552871],
     img: "/heritagePhoto/stewards.jpg",
+    star: 3,
   },
 ];

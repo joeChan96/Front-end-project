@@ -5,6 +5,8 @@ import "./leaflet.css";
 
 import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
 
+import StarIcon from "@mui/icons-material/Star";
+
 export default function Leaflet({ id }) {
   const [map, setMap] = useState(null);
 
@@ -12,6 +14,24 @@ export default function Leaflet({ id }) {
 
   const marker = heritageInfo.map((heritage, index) => {
     const latlng: any = heritage.coordinates;
+
+    // Popup box display
+    const heritageInfo = (
+      <div>
+        <img className="img" src={heritage.img} />
+        <div>
+          <b>{heritage.name}</b>
+        </div>
+        <br />
+        <div>{heritage.district}</div>
+        <div>
+          Visiting time: {heritage.visiting_time}{" "}
+          {heritage.visiting_time < 2 ? "hour" : "hours"}
+        </div>
+
+        <a href="#">See more...</a>
+      </div>
+    );
 
     // if (id === heritage.id) markerRef.current.leafletElement.openPopup();
 
@@ -21,22 +41,26 @@ export default function Leaflet({ id }) {
       // </Marker>
       <PointMarker
         key={index}
-        content={heritage.name}
-        center={latlng}
+        content={heritageInfo}
+        position={latlng}
         openPopup={id === heritage.id}
       />
     );
   });
 
-  function PointMarker({ content, center, openPopup }) {
+  function PointMarker({ content, position, openPopup }) {
     const markerRef: any = useRef(null);
+    const map = useMap();
 
     useEffect(() => {
-      if (openPopup) markerRef.current.openPopup();
+      if (openPopup) {
+        markerRef.current.openPopup();
+        map.setView(position, 12);
+      }
     }, [openPopup]);
 
     return (
-      <Marker position={center} ref={markerRef}>
+      <Marker position={position} ref={markerRef}>
         <Popup>{content}</Popup>
       </Marker>
     );

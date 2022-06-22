@@ -1,7 +1,9 @@
 import "./maincontent.css";
+import NavPage from "./navPage";
 import Weather from "./weather";
 import Leaflet from "./leaflet";
 import heritageInfo from "./heritageInfo";
+
 // import MapExample from "./mapExample";
 
 import * as React from "react";
@@ -40,20 +42,21 @@ const MainContent = () => {
 
   const [selected, setSelected] = useState();
 
-  // const [turnOn, setTurnOn] = React.useState(true);
-
   // For transition
   const [checked, setChecked] = useState<boolean>(false);
 
   const [result, setResult] = useState("");
 
+  const [show, setShow] = useState(true);
+
   function handleChange() {
     setChecked(true);
+    setShow(false);
   }
 
-  function searchResult(e) {
-    e.preventDefault();
-    setResult(e.target.value);
+  function searchResult(event) {
+    event.preventDefault();
+    setResult(event.target.value);
   }
 
   const heritageList = heritageInfo
@@ -109,7 +112,10 @@ const MainContent = () => {
         {/* 1st nav part */}
 
         <AppBar position="static">
-          <Container className="header" maxWidth="xl">
+          <Container
+            maxWidth={false}
+            sx={{ width: "100%", bgcolor: "#3a506b" }}
+          >
             <Toolbar disableGutters>
               <Typography
                 variant="h6"
@@ -168,12 +174,14 @@ const MainContent = () => {
             label="Search Heritage"
             onClick={handleChange}
           />
-          <BottomNavigationAction label="Cycling Path" />
+          <BottomNavigationAction label="Heritage Info" />
           <BottomNavigationAction label="About us" />
         </BottomNavigation>
       </nav>
 
       {/* Main Content */}
+
+      {show && <NavPage />}
       <Fade in={checked}>
         <main>
           <Box sx={{ flexGrow: 1 }}>
@@ -217,7 +225,11 @@ const MainContent = () => {
                   {heritageList}
                 </List>
               </Grid>
-              <Grid item xl={8} /*sx={displayMap(turnOn)}*/>
+              <Grid
+                item
+                xl={8}
+                sx={{ height: "75%" }} /*sx={displayMap(turnOn)}*/
+              >
                 <Item>
                   <Leaflet id={selected} />
                   {/* <MapExample

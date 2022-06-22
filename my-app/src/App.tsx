@@ -13,10 +13,11 @@ function App() {
       <CssBaseline />
 
       <Container
-        maxWidth="xl"
+        maxWidth={false}
         sx={{
           bgcolor: "#ffffff",
           height: "100%",
+          width: "100%",
         }}
       >
         <MainContent />
