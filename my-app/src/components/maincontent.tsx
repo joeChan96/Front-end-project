@@ -1,21 +1,18 @@
 import "./maincontent.css";
-import NavPage from "./navPage";
+// import NavPage from "./navPage";
 import Weather from "./weather";
 import Leaflet from "./leaflet";
 import heritageInfo from "./heritageInfo";
+import InfoPage from "./infopage";
 
 // import MapExample from "./mapExample";
 
 import * as React from "react";
 import { useState, useEffect } from "react";
-
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
+
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
@@ -37,22 +34,10 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const MainContent = () => {
-  const [value, setValue] = useState("recents");
-
+const MainContent = ({ checked }) => {
   const [selected, setSelected] = useState();
 
-  // For transition
-  const [checked, setChecked] = useState<boolean>(false);
-
   const [result, setResult] = useState("");
-
-  const [show, setShow] = useState(true);
-
-  function handleChange() {
-    setChecked(true);
-    setShow(false);
-  }
 
   function searchResult(event) {
     event.preventDefault();
@@ -108,80 +93,10 @@ const MainContent = () => {
 
   return (
     <div>
-      <nav>
-        {/* 1st nav part */}
-
-        <AppBar position="static">
-          <Container
-            maxWidth={false}
-            sx={{ width: "100%", bgcolor: "#3a506b" }}
-          >
-            <Toolbar disableGutters>
-              <Typography
-                variant="h6"
-                noWrap
-                component="a"
-                href="/"
-                sx={{
-                  mr: 2,
-                  display: { xs: "none", md: "flex" },
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "inherit",
-                  textDecoration: "none",
-                }}
-              >
-                <img className="logo" src="onjj.png" />
-              </Typography>
-
-              <Typography
-                variant="h5"
-                noWrap
-                component="a"
-                href=""
-                sx={{
-                  mr: 2,
-                  display: { xs: "flex", md: "none" },
-                  flexGrow: 1,
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "inherit",
-                  textDecoration: "none",
-                }}
-              ></Typography>
-
-              <Box
-                sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-              ></Box>
-
-              <Box sx={{ flexGrow: 0 }}></Box>
-              <Weather />
-            </Toolbar>
-          </Container>
-        </AppBar>
-
-        {/* 2nd navpart */}
-        <BottomNavigation
-          showLabels
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-        >
-          <BottomNavigationAction
-            label="Search Heritage"
-            onClick={handleChange}
-          />
-          <BottomNavigationAction label="Heritage Info" />
-          <BottomNavigationAction label="About us" />
-        </BottomNavigation>
-      </nav>
-
       {/* Main Content */}
 
-      {show && <NavPage />}
+      {/* {show && <NavPage />} */}
+
       <Fade in={checked}>
         <main>
           <Box sx={{ flexGrow: 1 }}>
@@ -241,6 +156,7 @@ const MainContent = () => {
               </Grid>
             </Grid>
           </Box>
+          {/* <InfoPage /> */}
         </main>
       </Fade>
     </div>
