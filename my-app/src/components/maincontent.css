@@ -11,3 +11,8 @@
 .body-part {
   background-color: aqua;
 }
+
+.list:hover {
+  cursor: pointer;
+  background-color: #ededed;
+}

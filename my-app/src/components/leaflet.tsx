@@ -55,13 +55,14 @@ const BootstrapDialogTitle = (props: DialogTitleProps) => {
 };
 
 export default function Leaflet({ id }) {
-  const [map, setMap] = useState(null);
-
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
+  const handleClickOpen = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
     setOpen(true);
   };
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -72,13 +73,13 @@ export default function Leaflet({ id }) {
     const latlng: any = heritage.coordinates;
 
     // Popup box display
-    const heritageInfo = (
+    const heritageContent = (
       <div>
         <img className="img" src={heritage.img} />
-        <div>
+        <div className="name">
           <b>{heritage.name}</b>
         </div>
-        <br />
+
         <div>{heritage.district}</div>
         <div>
           Visiting time: {heritage.visiting_time}
@@ -108,6 +109,9 @@ export default function Leaflet({ id }) {
               <Typography gutterBottom>
                 <b>Opening hours:</b> {heritage.opening_hours}
               </Typography>
+              <a href={heritage.web}>
+                <b>More Information</b>
+              </a>
             </DialogContent>
             <DialogActions>
               <Button autoFocus onClick={handleClose}>
@@ -122,9 +126,9 @@ export default function Leaflet({ id }) {
     return (
       <PointMarker
         key={index}
-        content={heritageInfo}
+        content={heritageContent}
         position={latlng}
-        openPopup={id === heritage.id}
+        openPopup={id == heritage.id}
       />
     );
   });
@@ -133,7 +137,7 @@ export default function Leaflet({ id }) {
     const markerRef: any = useRef(null);
     const map = useMap();
 
-    useEffect(() => {
+    useEffect((): any => {
       if (openPopup) {
         markerRef.current.openPopup();
         map.setView(position, 12);
@@ -147,28 +151,14 @@ export default function Leaflet({ id }) {
     );
   }
 
-  useEffect(() => {
-    if (map) {
-      setInterval(function () {
-        map.invalidateSize();
-      }, 100);
-    }
-  }, [map]);
-
+  // Result
   return (
     <div className="map">
-      <MapContainer
-        center={[22.37, 114.135]}
-        zoom={11}
-        scrollWheelZoom={true}
-        ref={setMap}
-      >
+      <MapContainer center={[22.37, 114.135]} zoom={11} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-
-        {/* <PointsLayer selectedIndex={selected} data={heritageInfo} /> */}
         {marker}
       </MapContainer>
     </div>

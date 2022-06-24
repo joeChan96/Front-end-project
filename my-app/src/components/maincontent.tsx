@@ -21,7 +21,6 @@ import Fade from "@mui/material/Fade";
 
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import Divider from "@mui/material/Divider";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
@@ -64,6 +63,7 @@ const MainContent = ({ checked }) => {
           onClick={(e) => {
             onItemClick(heritage.id);
           }}
+          className="list"
         >
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={heritage.img} />
@@ -134,6 +134,7 @@ const MainContent = ({ checked }) => {
                     maxHeight: 570,
                     bgcolor: "background.paper",
                     overflow: "auto",
+
                     // display: "none",
                   }}
                 >
