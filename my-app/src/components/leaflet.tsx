@@ -10,10 +10,12 @@ import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
+import DialogContentText from "@mui/material/DialogContentText";
 
 import "./leaflet.css";
 
 import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
+import { LeafletMouseEvent, popup } from "leaflet";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -54,12 +56,10 @@ const BootstrapDialogTitle = (props: DialogTitleProps) => {
   );
 };
 
-export default function Leaflet({ id }) {
+export default function Leaflet({ id, changePopup }) {
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = (e) => {
-    e.stopPropagation();
-    e.preventDefault();
+  const handleClickOpen = () => {
     setOpen(true);
   };
 
@@ -67,7 +67,7 @@ export default function Leaflet({ id }) {
     setOpen(false);
   };
 
-  // const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState();
 
   const marker = heritageInfo.map((heritage, index) => {
     const latlng: any = heritage.coordinates;
@@ -129,6 +129,7 @@ export default function Leaflet({ id }) {
         content={heritageContent}
         position={latlng}
         openPopup={id == heritage.id}
+        // heritage={heritage}
       />
     );
   });
@@ -137,7 +138,7 @@ export default function Leaflet({ id }) {
     const markerRef: any = useRef(null);
     const map = useMap();
 
-    useEffect((): any => {
+    useEffect(() => {
       if (openPopup) {
         markerRef.current.openPopup();
         map.setView(position, 12);
@@ -145,8 +146,16 @@ export default function Leaflet({ id }) {
     }, [openPopup]);
 
     return (
-      <Marker position={position} ref={markerRef}>
-        <Popup>{content}</Popup>
+      <Marker
+        position={position}
+        ref={markerRef}
+        eventHandlers={{
+          click: (e) => {
+            e.target.closePopup();
+          },
+        }}
+      >
+        {changePopup && <Popup>{content}</Popup>}
       </Marker>
     );
   }

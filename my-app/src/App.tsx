@@ -3,7 +3,7 @@ import "./components/maincontent.css";
 import MainContent from "./components/maincontent";
 // import NavPage from "./components/navPage";
 import Weather from "./components/weather";
-// import Main from "./Main";
+import Contact from "./components/contact";
 
 import * as React from "react";
 import { useState } from "react";
@@ -19,6 +19,7 @@ import Box, { BoxProps } from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import Button from "@mui/material/Button";
+
 import "./components/navPage.css";
 import InfoPage from "./components/infopage";
 
@@ -48,11 +49,27 @@ function App() {
 
   const [checked, setChecked] = useState<boolean>(false);
 
+  const [checkedContact, setCheckedContact] = useState(false);
+
+  const [checkedMain, setCheckedMain] = useState(false);
+
   const [show, setShow] = useState(true);
 
+  const [fadeContact, setFadeContact] = useState(false);
+
   function handleChange() {
+    setCheckedMain(true);
     setChecked(true);
     setShow(false);
+    setCheckedContact(false);
+  }
+
+  function handleChangeContact() {
+    setCheckedMain(false);
+    setChecked(false);
+    setShow(false);
+    setCheckedContact(true);
+    setFadeContact(true);
   }
 
   function changeValue(event, newValue) {
@@ -161,7 +178,10 @@ function App() {
               onClick={handleChange}
             />
 
-            <BottomNavigationAction label="Contact us" />
+            <BottomNavigationAction
+              label="Contact us"
+              onClick={handleChangeContact}
+            />
           </BottomNavigation>
         </nav>
 
@@ -206,7 +226,8 @@ function App() {
             {/* <MainContent show={show} checked={checked} /> */}
           </div>
         )}
-        <MainContent checked={checked} />
+        {checkedMain && <MainContent checked={checked} />}
+        {checkedContact && <Contact checked={fadeContact} />}
       </Container>
     </div>
   );

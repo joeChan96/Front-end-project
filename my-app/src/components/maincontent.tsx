@@ -1,14 +1,13 @@
 import "./maincontent.css";
 // import NavPage from "./navPage";
-import Weather from "./weather";
+
 import Leaflet from "./leaflet";
 import heritageInfo from "./heritageInfo";
-import InfoPage from "./infopage";
 
 // import MapExample from "./mapExample";
 
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 
 import Typography from "@mui/material/Typography";
@@ -38,9 +37,17 @@ const MainContent = ({ checked }) => {
 
   const [result, setResult] = useState("");
 
+  const [popup, setPopup] = useState(true);
+
   function searchResult(event) {
+    event.stopPropagation();
     event.preventDefault();
+    setPopup(false);
     setResult(event.target.value);
+  }
+
+  function onItemClick(id) {
+    setSelected(id);
   }
 
   const heritageList = heritageInfo
@@ -62,6 +69,7 @@ const MainContent = ({ checked }) => {
           key={index}
           onClick={(e) => {
             onItemClick(heritage.id);
+            setPopup(true);
           }}
           className="list"
         >
@@ -87,30 +95,18 @@ const MainContent = ({ checked }) => {
       );
     });
 
-  function onItemClick(id) {
-    setSelected(id);
-  }
-
   return (
-    <div>
-      {/* Main Content */}
-
-      {/* {show && <NavPage />} */}
-
-      <Fade in={checked}>
+    <Fade in={checked}>
+      <div>
         <main>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
               {/* Search field */}
-              <Grid
-                item
-                xl={4}
-                sx={{ height: "75%" }} /*sx={displayMap(turnOn)}*/
-              >
+              <Grid item xl={4} sx={{ height: "100%" }}>
                 <Box
                   component="form"
                   sx={{
-                    "& .MuiTextField-root": { m: 1, width: "50ch" },
+                    "& .MuiTextField-root": { m: 1, width: "95%" },
                   }}
                   noValidate
                   autoComplete="off"
@@ -118,9 +114,9 @@ const MainContent = ({ checked }) => {
                   {/* Search part */}
 
                   <TextField
-                    id="standard-search"
+                    // id="standard-search"
                     label="Search heritage by name or district"
-                    type="search"
+                    // type="search"
                     // variant="standard"
                     value={result}
                     onChange={searchResult}
@@ -131,7 +127,7 @@ const MainContent = ({ checked }) => {
                   sx={{
                     width: "100%",
                     // maxWidth: 360,
-                    maxHeight: 570,
+                    maxHeight: "100vh",
                     bgcolor: "background.paper",
                     overflow: "auto",
 
@@ -141,13 +137,9 @@ const MainContent = ({ checked }) => {
                   {heritageList}
                 </List>
               </Grid>
-              <Grid
-                item
-                xl={8}
-                sx={{ height: "75%" }} /*sx={displayMap(turnOn)}*/
-              >
+              <Grid item xl={8} sx={{ height: "100%" }}>
                 <Item>
-                  <Leaflet id={selected} />
+                  <Leaflet id={selected} changePopup={popup} />
                   {/* <MapExample
                     zoom={4}
                     center={{ lat: 22.37, lng: 114.135 }}
@@ -159,8 +151,8 @@ const MainContent = ({ checked }) => {
           </Box>
           {/* <InfoPage /> */}
         </main>
-      </Fade>
-    </div>
+      </div>
+    </Fade>
   );
 };
 export default MainContent;
