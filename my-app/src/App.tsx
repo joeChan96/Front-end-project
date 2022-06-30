@@ -134,11 +134,12 @@ function App() {
                   sx={{
                     mr: 2,
                     display: { xs: "none", md: "flex" },
-                    fontFamily: "monospace",
-                    fontWeight: 700,
+                    // fontFamily: "monospace",
+                    // fontWeight: 700,
                     letterSpacing: ".3rem",
                     color: "inherit",
                     textDecoration: "none",
+                    width: "100%",
                   }}
                 >
                   <img className="logo" src="onjj.png" />
@@ -161,9 +162,9 @@ function App() {
                   }}
                 ></Typography>
 
-                <Box
+                {/* <Box
                   sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-                ></Box>
+                ></Box> */}
 
                 <Box sx={{ flexGrow: 0 }}></Box>
                 <Weather />

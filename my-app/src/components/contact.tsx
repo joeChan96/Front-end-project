@@ -50,10 +50,10 @@ export default function Contact({ checked }) {
   return (
     <Fade in={checked}>
       <Grid container spacing={2}>
-        <Grid item xl={6} sx={{ height: "100%" }}>
+        <Grid item xl={6} sx={{ height: "100%", width: "55%" }}>
           <img className="contactimage" src="contactimg.jpg" />
         </Grid>
-        <Grid item xl={6} sx={{ height: "100%" }}>
+        <Grid item xl={6} sx={{ height: "100%", width: "45%" }}>
           <form className="form" onSubmit={handleSubmit(onSubmit)}>
             <div className="body">
               <Typography

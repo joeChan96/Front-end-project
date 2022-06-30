@@ -129,12 +129,11 @@ export default function Leaflet({ id, changePopup }) {
         content={heritageContent}
         position={latlng}
         openPopup={id == heritage.id}
-        // heritage={heritage}
       />
     );
   });
 
-  function PointMarker({ content, position, openPopup }) {
+  function PointMarker({ key, content, position, openPopup }) {
     const markerRef: any = useRef(null);
     const map = useMap();
 
@@ -145,19 +144,13 @@ export default function Leaflet({ id, changePopup }) {
       }
     }, [openPopup]);
 
-    return (
-      <Marker
-        position={position}
-        ref={markerRef}
-        eventHandlers={{
-          click: (e) => {
-            e.target.closePopup();
-          },
-        }}
-      >
-        {changePopup && <Popup>{content}</Popup>}
-      </Marker>
-    );
+    if (openPopup) {
+      return (
+        <Marker position={position} ref={markerRef}>
+          <Popup>{content}</Popup>
+        </Marker>
+      );
+    }
   }
 
   // Result
@@ -168,8 +161,77 @@ export default function Leaflet({ id, changePopup }) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {marker}
+        {changePopup && marker}
       </MapContainer>
     </div>
   );
 }
+
+// if (position[0] === e.latlng.lat) {
+//   return heritageInfo
+//     .filter((heritage) => {
+//       if (e.latlng.lat === heritage.coordinates[0]) {
+//         return heritage;
+//       }
+//     })
+//     .map((heritage) => {
+//       setMarkerPop(
+//         <Popup>
+//           <div>
+//             <img className="img" src={heritage.img} />
+//             <div className="name">
+//               <b>{heritage.name}</b>
+//             </div>
+
+//             <div>{heritage.district}</div>
+//             <div>
+//               Visiting time: {heritage.visiting_time}
+//               {heritage.visiting_time < 2 ? " hour" : " hours"}
+//             </div>
+//             <br />
+//             <div>
+//               <Button
+//                 variant="outlined"
+//                 sx={{ p: "5" }}
+//                 onClick={handleClickOpen}
+//               >
+//                 Learn More...
+//               </Button>
+//               <BootstrapDialog
+//                 onClose={handleClose}
+//                 aria-labelledby="customized-dialog-title"
+//                 open={open}
+//               >
+//                 <BootstrapDialogTitle
+//                   id="customized-dialog-title"
+//                   onClose={handleClose}
+//                 >
+//                   {heritage.name}
+//                 </BootstrapDialogTitle>
+//                 <DialogContent dividers>
+//                   <Typography gutterBottom>
+//                     {heritage.description}
+//                   </Typography>
+//                   <Typography gutterBottom sx={{ pt: 3 }}>
+//                     <b>Address:</b> {heritage.address}
+//                   </Typography>
+//                   <Typography gutterBottom>
+//                     <b>Opening hours:</b> {heritage.opening_hours}
+//                   </Typography>
+//                   <a href={heritage.web}>
+//                     <b>More Information</b>
+//                   </a>
+//                 </DialogContent>
+//                 <DialogActions>
+//                   <Button autoFocus onClick={handleClose}>
+//                     Understand
+//                   </Button>
+//                 </DialogActions>
+//               </BootstrapDialog>
+//             </div>
+//           </div>
+//         </Popup>
+//       );
+//     });
+// }
+// setMarkerPop(null);

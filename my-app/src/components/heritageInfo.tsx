@@ -239,4 +239,64 @@ export default [
     opening_hours: "Mon-Sat 10:00-23:30, Closed on Sun",
     web: "https://highrock.stewards.hk/",
   },
+
+  {
+    id: 17,
+    name: "Ma On Shan Iron Mine",
+    district: "New Territories",
+    visiting_time: 3,
+    coordinates: [22.40353237543594, 114.24476685996343],
+    img: "/heritagePhoto/mosironmine.jpg",
+    star: 3,
+    description:
+      "The Ma On Shan (MOS) Iron Mine is the only iron mine that had undergone large-scale mechanical operation in Hong Kong’s industrial history. From the early 20th century (when it was discovered that MOS contains a large amount of iron ores) to 1976 when the Mine was closed, its 70-year history witnessed socio-economic and political changes in Hong Kong and Asia before and after the Second World War (WWII). The post-WWII era brought mainlanders from different provinces of China, Japan and even Europeans to MOS, for various reasons and together they co-wrote a unique chapter of the history of MOS as well as Hong Kong.",
+    address: "Ma On Shan, Sha Tin ",
+    opening_hours: "24 hrs",
+    web: "https://en.maonshanironmine.net/",
+  },
+
+  {
+    id: 18,
+    name: "Ma On Shan Village",
+    district: "New Territories",
+    visiting_time: 2,
+    coordinates: [22.401562306684912, 114.24234323058883],
+    img: "/heritagePhoto/mosvillage.jpg",
+    star: 4,
+    description:
+      "Ma On Shan Village or Ma On Shan Tsuen  is a mining village in the hills of Ma On Shan, Sha Tin District, Hong Kong. The village grew around the activity of the Ma On Shan Iron Mine, which reached its peak during the 1950s-60s and ceased operation in 1976. It had historically two churches, St. Joseph's Church and Lutheran Yan Kwong Church.",
+    address: "Ma On Shan, Sha Tin ",
+    opening_hours: "Fri-Sun & Public holidays 10:00-17:00",
+    web: "https://gyc.elchk.org.hk/zh-hant/",
+  },
+
+  {
+    id: 19,
+    name: "Tai Wong Yeh Temple",
+    district: "New Territories",
+    visiting_time: 1,
+    coordinates: [22.44546159267108, 114.17780172991499],
+    img: "/heritagePhoto/taiwongyehtemple.jpg",
+    star: 3,
+    description:
+      "Tai Wong Yeh Temple is located at the Island House Interchange. The temple was originally a stone tablet which was erected on the northern shore of Yuen Chau Tsai by the villagers in Chik Mei Village, located on the north bank of the Shenzhen River, in the mid-Qing Dynasty. In the late Qing Dynasty, some fishermen raised funds to build the temple for worship by local fishermen at the present location.",
+    address: "Yuen Chau Jai, Tai Po ",
+    opening_hours: "Mon-Sun 08:00-17:00",
+    web: "http://www.ctc.org.hk/en/registered_temple_result.asp?tp_ID=11145",
+  },
+
+  {
+    id: 20,
+    name: "Hong Kong Railway Museum",
+    district: "New Territories",
+    visiting_time: 2,
+    coordinates: [22.447612369806485, 114.16433999521493],
+    img: "/heritagePhoto/hkrailwaymuseum.jpg",
+    star: 4,
+    description:
+      "This pint-sized museum is based at the former Tai Po Market Railway Station, though given the exhibits are life-size trains, most of the museum is outdoors. Alongside the historical aspect of seeing a traditional steam locomotive, an old 1950s Australia-made diesel electric engine and retro passenger coaches, visitors can learn about the development of the railways and MTR in Hong Kong, plus there’s an interactive educational corner. The market building is of interest by itself for its early 20th century traditional Chinese pitched-roof architecture.",
+    address: "13 Shung Tak Street, Tai Po Market, Tai Po ",
+    opening_hours: "Mon, Wed-Sun 10:00-18:00",
+    web: "https://www.heritagemuseum.gov.hk/en_US/web/hm/museums/railway.html",
+  },
 ];

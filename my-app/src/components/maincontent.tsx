@@ -102,7 +102,7 @@ const MainContent = ({ checked }) => {
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
               {/* Search field */}
-              <Grid item xl={4} sx={{ height: "100%" }}>
+              <Grid item xl={4} sx={{ height: "100%", width: "40%" }}>
                 <Box
                   component="form"
                   sx={{
@@ -126,18 +126,16 @@ const MainContent = ({ checked }) => {
                 <List
                   sx={{
                     width: "100%",
-                    // maxWidth: 360,
+
                     maxHeight: "100vh",
                     bgcolor: "background.paper",
                     overflow: "auto",
-
-                    // display: "none",
                   }}
                 >
                   {heritageList}
                 </List>
               </Grid>
-              <Grid item xl={8} sx={{ height: "100%" }}>
+              <Grid item xl={8} sx={{ height: "100%", width: "60%" }}>
                 <Item>
                   <Leaflet id={selected} changePopup={popup} />
                   {/* <MapExample
