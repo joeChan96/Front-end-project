@@ -1,12 +1,65 @@
+.forecast-body {
+  display: flex;
+  justify-content: center;
+}
+
+.forecast-title {
+  font-family: "Roboto Mono", monospace;
+}
+
 .weather {
   display: flex;
   gap: 5px;
   align-items: center;
 }
 
+.weather :hover {
+  cursor: pointer;
+}
+
+.currentweather-img {
+  width: 42px;
+}
+
 .weather-img {
   width: 40px;
   background-color: none;
+  /* padding: 4%; */
+}
+.currentweather-img {
+  width: 50px;
+}
+
+.currentWeather {
+  font-size: 20px;
+  padding-left: 5.5px;
+}
+
+.currentdate,
+.currenttemp {
+  font-size: 20px;
+}
+
+.date,
+.temp {
+  padding: 7px;
+}
+
+.weekdaydate {
+  font-size: 16px;
+  width: 7%;
+}
+
+.currentdescription {
+  padding: 4px;
+  font-size: 22px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.description {
+  padding: 4px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: large;
 }
 
 .temperature {
