@@ -299,4 +299,50 @@ export default [
     opening_hours: "Mon, Wed-Sun 10:00-18:00",
     web: "https://www.heritagemuseum.gov.hk/en_US/web/hm/museums/railway.html",
   },
+
+  {
+    id: 21,
+    name: "Shrine",
+    district: "Hong Kong Island",
+    visiting_time: 1,
+    coordinates: [22.248435029635313, 114.15458876928814],
+    img: "/heritagePhoto/shrine.jpg",
+    star: 3,
+    description:
+      "This shrine is very mini and it is famous for its location. It does not like the other temples, it locates in a cross-section of two roads. Originally, shrine was built near the seaside, but then as there was reclamation, shrine was moved to the town centre of Aberdeen. ",
+    address: "2 Nam Ning St, Aberdeen",
+    opening_hours: "24 hrs",
+    web: "https://wherevergreen.hk/locations/5vG9sYUERLq5pr_tN3blZw",
+  },
+
+  {
+    id: 22,
+    name: "The Wareouse Teenage Club (Former Aberdeen Police Station)",
+    district: "Hong Kong Island",
+    visiting_time: 1,
+    coordinates: [22.247726156894704, 114.15684479730331],
+    img: "/heritagePhoto/formeraberdeen.jpg",
+    star: 4,
+    description:
+      "Warehouse is housed in what was once Aberdeen Police Station. In 19th mid- century, the first Aberdeen Police Station was established. Due to the growing population in southern district in late 19th century, Hong Kong government determined to exploit the hummock near the seashore along Aberdeen Main Road. A new Police Station (two-storey building of red bricks) was built in 1891. It became a Marine PoliceTraining School in 1969 when a modern police station was built in Staunton Bay. After a full-scale renovation in 1995, it changed to the site of The Warehouse Teenage Club. To reflect the significant historical value of the building, The Antiquities and Monuments Office has classified Warehouse as Grade III historical building.",
+    address: "4 Wong Chuk Hang Rd, Aberdeen",
+    opening_hours:
+      "Tue-Fri 10:00-22:00, Sat 10:00-18:00, Closed on Sunday and Public Holidays",
+    web: "https://www.warehouse.org.hk/",
+  },
+
+  {
+    id: 23,
+    name: "Yue Kwong Chuen",
+    district: "Hong Kong Island",
+    visiting_time: 1,
+    coordinates: [22.25125008432946, 114.15696251057489],
+    img: "/heritagePhoto/yukwongchuen.jpg",
+    star: 3,
+    description:
+      "Yue Kwong Chuen  is a public estate in Aberdeen, developed by the HKHS, and it is the only estate in Southern District developed by the Hong Kong Housing Society. The estate comprises 5 blocks built in 1962, 1963 and 1965 respectively.It is the second oldest existing public housing estate developed by the Hong Kong Housing Society, and also the oldest one in Southern District.",
+    address: "30 Aberdeen Reservoir Rd, Aberdeen",
+    opening_hours: "24 hrs",
+    web: "https://www.hkhs.com/tc/housing_archive/id/30",
+  },
 ];

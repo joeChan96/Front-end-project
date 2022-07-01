@@ -199,7 +199,7 @@ function App() {
                 // bgcolor: "#5BC0BE",
               }}
             >
-              <Item sx={{ pt: 13 }}>
+              <Item sx={{ pt: 13, height: "100%" }}>
                 <div>Welcome to</div>
                 <div className="logotext">HKYEAH HERITAGE</div>
                 <Box sx={{ "& button": { m: 1 } }}>
@@ -214,7 +214,12 @@ function App() {
               </Item>
 
               <Item>
-                <ImageList sx={{ width: 700 }} variant="woven" cols={3} gap={8}>
+                <ImageList
+                  sx={{ width: 700, height: "100%" }}
+                  variant="woven"
+                  cols={3}
+                  gap={8}
+                >
                   {itemData.map((item) => (
                     <ImageListItem key={item.img}>
                       <img src={item.img} alt={item.title} loading="lazy" />
