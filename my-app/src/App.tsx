@@ -21,7 +21,7 @@ import ImageListItem from "@mui/material/ImageListItem";
 import Button from "@mui/material/Button";
 
 import "./components/navPage.css";
-import InfoPage from "./components/infopage";
+
 
 function Item(props: BoxProps) {
   const { sx, ...other } = props;
