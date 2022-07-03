@@ -20,8 +20,8 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import Button from "@mui/material/Button";
 
-import "./components/navPage.css";
 
+import "./components/navPage.css";
 
 function Item(props: BoxProps) {
   const { sx, ...other } = props;
@@ -79,7 +79,7 @@ function App() {
   const itemData = [
     {
       img: "heritagePhoto/bird.jpg",
-      title: "Bed",
+      title: "Bird",
     },
     {
       img: "heritagePhoto/teahouse.jpg",
