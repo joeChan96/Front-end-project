@@ -5,12 +5,7 @@ import Typography from "@mui/material/Typography";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
 import Fade from "@mui/material/Fade";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
@@ -26,21 +21,13 @@ interface IFormInput {
 }
 
 export default function Contact({ checked }) {
-  // const [value, setValue] = React.useState("");
-
-  // const [district, setDistrict] = React.useState("");
-
-  // const handleChange = (event: SelectChangeEvent) => {
-  //   setDistrict(event.target.value as string);
-  // };
-
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm<IFormInput>({ criteriaMode: "all" });
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+  const onSubmit: SubmitHandler<IFormInput> = () => {
     alert(
       "Thanks for your contribution! We will contact you very soon for further information"
     );
@@ -51,7 +38,7 @@ export default function Contact({ checked }) {
     <Fade in={checked}>
       <Grid container spacing={2}>
         <Grid item xl={6} sx={{ height: "100%", width: "55%" }}>
-          <img className="contactimage" src="contactimg.jpg" />
+          <img className="contactimage" src="./contactimg.jpg" />
         </Grid>
         <Grid item xl={6} sx={{ height: "100%", width: "45%" }}>
           <form className="form" onSubmit={handleSubmit(onSubmit)}>

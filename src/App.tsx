@@ -20,7 +20,6 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import Button from "@mui/material/Button";
 
-
 import "./components/navPage.css";
 
 function Item(props: BoxProps) {
@@ -78,28 +77,28 @@ function App() {
 
   const itemData = [
     {
-      img: "heritagePhoto/bird.jpg",
+      img: "./heritagePhoto/bird.jpg",
       title: "Bird",
     },
     {
-      img: "heritagePhoto/teahouse.jpg",
+      img: "./heritagePhoto/teahouse.jpg",
       title: "Tea House",
     },
     {
-      img: "heritagePhoto/catholic.jpg",
+      img: "./heritagePhoto/catholic.jpg",
       title: "Catholic",
     },
 
     {
-      img: "heritagePhoto/kowlooncity.jpg",
+      img: "./heritagePhoto/kowlooncity.jpg",
       title: "Kowloon City",
     },
     {
-      img: "heritagePhoto/cheunghole.jpg",
+      img: "./heritagePhoto/cheunghole.jpg",
       title: "Cheung's hole",
     },
     {
-      img: "heritagePhoto/hkjaimarket.jpg",
+      img: "./heritagePhoto/hkjaimarket.jpg",
       title: "Aberdeen market",
     },
   ];
@@ -134,37 +133,14 @@ function App() {
                   sx={{
                     mr: 2,
                     display: { xs: "none", md: "flex" },
-                    // fontFamily: "monospace",
-                    // fontWeight: 700,
                     letterSpacing: ".3rem",
                     color: "inherit",
                     textDecoration: "none",
                     width: "100%",
                   }}
                 >
-                  <img className="logo" src="onjj.png" />
+                  <img className="logo" src="./onjj.png" />
                 </Typography>
-
-                <Typography
-                  variant="h5"
-                  noWrap
-                  component="a"
-                  href=""
-                  sx={{
-                    mr: 2,
-                    display: { xs: "flex", md: "none" },
-                    flexGrow: 1,
-                    fontFamily: "monospace",
-                    fontWeight: 700,
-                    letterSpacing: ".3rem",
-                    color: "inherit",
-                    textDecoration: "none",
-                  }}
-                ></Typography>
-
-                {/* <Box
-                  sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-                ></Box> */}
 
                 <Box sx={{ flexGrow: 0 }}></Box>
                 <Weather />
