@@ -20,6 +20,7 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import Button from "@mui/material/Button";
 
+import "./App.css";
 import "./components/navPage.css";
 
 function Item(props: BoxProps) {
@@ -129,7 +130,7 @@ function App() {
                   variant="h6"
                   noWrap
                   component="a"
-                  href="https://joechan96.github.io/Front-end-project/"
+                  href="/"
                   sx={{
                     mr: 2,
                     display: { xs: "none", md: "flex" },

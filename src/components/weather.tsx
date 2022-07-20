@@ -85,6 +85,7 @@ export default function Weather() {
             data.list[26],
             data.list[34],
           ]);
+          console.log(data.list);
         })
         .catch((err) => console.log(err + "happens"));
     }
