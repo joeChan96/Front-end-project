@@ -140,7 +140,7 @@ function App() {
                     width: "100%",
                   }}
                 >
-                  <img className="logo" src="./onjj.png" />
+                  <img className="logo" src="./hky.png" />
                 </Typography>
 
                 <Box sx={{ flexGrow: 0 }}></Box>
