@@ -130,7 +130,7 @@ function App() {
                   variant="h6"
                   noWrap
                   component="a"
-                  href="/"
+                  href="http://joeChan96.github.io/Front-end-project"
                   sx={{
                     mr: 2,
                     display: { xs: "none", md: "flex" },
