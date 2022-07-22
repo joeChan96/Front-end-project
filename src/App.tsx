@@ -104,6 +104,10 @@ function App() {
     },
   ];
 
+  function gotomainpage() {
+    window.location.href = "http://joeChan96.github.io/Front-end-project";
+  }
+
   return (
     <div>
       <CssBaseline />
@@ -123,29 +127,17 @@ function App() {
           <AppBar position="static">
             <Container
               maxWidth={false}
-              sx={{ width: "100%", bgcolor: "#3a506b" }}
+              sx={{
+                width: "100%",
+                bgcolor: "#3a506b",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
             >
-              <Toolbar disableGutters>
-                <Typography
-                  variant="h6"
-                  noWrap
-                  component="a"
-                  href="http://joeChan96.github.io/Front-end-project"
-                  sx={{
-                    mr: 2,
-                    display: { xs: "none", md: "flex" },
-                    letterSpacing: ".3rem",
-                    color: "inherit",
-                    textDecoration: "none",
-                    width: "100%",
-                  }}
-                >
-                  <img className="logo" src="./hky.png" />
-                </Typography>
+              <img onClick={gotomainpage} className="logo" src="./hky.png" />
 
-                <Box sx={{ flexGrow: 0 }}></Box>
-                <Weather />
-              </Toolbar>
+              <Weather />
             </Container>
           </AppBar>
 
