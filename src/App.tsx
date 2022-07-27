@@ -9,8 +9,6 @@ import * as React from "react";
 import { useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
@@ -19,6 +17,8 @@ import Box, { BoxProps } from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import Button from "@mui/material/Button";
+import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import "./App.css";
 import "./components/navPage.css";
@@ -112,21 +112,14 @@ function App() {
     <div>
       <CssBaseline />
 
-      <Container
-        maxWidth={false}
-        sx={{
-          bgcolor: "#ffffff",
-          height: "100%",
-          width: "100%",
-        }}
-      >
+      <Container maxWidth="xl">
         {/* Navigation bar */}
-        <nav>
-          {/* 1st nav part */}
 
+        {/* 1st nav part */}
+        <nav>
           <AppBar position="static">
             <Container
-              maxWidth={false}
+              maxWidth="xl"
               sx={{
                 width: "100%",
                 bgcolor: "#3a506b",
@@ -135,25 +128,36 @@ function App() {
                 alignItems: "center",
               }}
             >
-              <img onClick={gotomainpage} className="logo" src="./hky.png" />
+              <Box
+                component="img"
+                sx={{
+                  width: 160,
+                  pt: "1%",
+                  pb: "1%",
+                  cursor: "pointer",
+                }}
+                alt="HKYEAH HERITAGE"
+                src="./hky.png"
+                onClick={gotomainpage}
+              />
 
               <Weather />
             </Container>
           </AppBar>
-
-          {/* 2nd navpart */}
-          <BottomNavigation showLabels value={value} onChange={changeValue}>
-            <BottomNavigationAction
-              label="Search Heritage"
-              onClick={handleChange}
-            />
-
-            <BottomNavigationAction
-              label="Contact us"
-              onClick={handleChangeContact}
-            />
-          </BottomNavigation>
         </nav>
+
+        {/* 2nd navpart */}
+        <BottomNavigation showLabels value={value} onChange={changeValue}>
+          <BottomNavigationAction
+            label="Search Heritage"
+            onClick={handleChange}
+          />
+
+          <BottomNavigationAction
+            label="Contact us"
+            onClick={handleChangeContact}
+          />
+        </BottomNavigation>
 
         {/* Nav Page */}
 
@@ -165,26 +169,24 @@ function App() {
                 gridTemplateColumns: "repeat(2, 1fr)",
                 pt: 5,
                 height: 200,
-                // bgcolor: "#5BC0BE",
               }}
             >
-              <Item sx={{ pt: 13, height: "100%" }}>
-                <div>Welcome to</div>
-                <div className="logotext">HKYEAH HERITAGE</div>
+              <Item sx={{ pt: "20%", height: "100%" }}>
                 <Box sx={{ "& button": { m: 1 } }}>
+                  <div>Welcome to</div>
+                  <div className="logotext">HKYEAH HERITAGE</div>
                   <Button
                     variant="contained"
-                    sx={{ width: 300, height: 50 }}
+                    sx={{ width: "50%", height: 50 }}
                     onClick={handleChange}
                   >
                     Start to Search
                   </Button>
                 </Box>
               </Item>
-
               <Item>
                 <ImageList
-                  sx={{ width: 700, height: "100%" }}
+                  sx={{ width: "90%", height: "100%" }}
                   variant="woven"
                   cols={3}
                   gap={8}
@@ -201,7 +203,9 @@ function App() {
             {/* <MainContent show={show} checked={checked} /> */}
           </div>
         )}
+
         {checkedMain && <MainContent checked={checked} />}
+
         {checkedContact && <Contact checked={fadeContact} />}
       </Container>
     </div>
