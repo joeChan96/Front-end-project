@@ -105,7 +105,7 @@ function App() {
   ];
 
   function gotomainpage() {
-    window.location.href = "http://joeChan96.github.io/Front-end-project";
+    window.location.href = "http://joeChan96.github.io/hkyeahheritage/";
   }
 
   return (
