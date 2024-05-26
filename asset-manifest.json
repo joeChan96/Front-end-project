@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/hkyeahheritage/static/css/main.26324a78.css",
-    "main.js": "/hkyeahheritage/static/js/main.73253bcb.js",
-    "index.html": "/hkyeahheritage/index.html",
-    "main.26324a78.css.map": "/hkyeahheritage/static/css/main.26324a78.css.map",
-    "main.73253bcb.js.map": "/hkyeahheritage/static/js/main.73253bcb.js.map"
+    "main.css": "/Front-end-project/static/css/main.26324a78.css",
+    "main.js": "/Front-end-project/static/js/main.73253bcb.js",
+    "index.html": "/Front-end-project/index.html",
+    "main.26324a78.css.map": "/Front-end-project/static/css/main.26324a78.css.map",
+    "main.73253bcb.js.map": "/Front-end-project/static/js/main.73253bcb.js.map"
   },
   "entrypoints": [
     "static/css/main.26324a78.css",
